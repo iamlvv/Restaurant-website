@@ -2,6 +2,7 @@
 <html>
     <head>
         <meta charset="utf-8">
+        <meta name=”viewport” content=”width=device-width, initial-scale=1.0″>
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>Restaurant</title>
         <meta name="description" content="Restaurant">
@@ -18,46 +19,53 @@
     </head>
     <body>
         <header>
-            <div class="grid-header">
-                <div class="head-options">Tacos</div>
-                <div class="head-options">Beers</div>
-                <div class="head-options">Wines</div>
-                <div class="head-options">Desserts</div>
-                <div class="head-options">Reservations</div>
-            </div>
+            <nav class ="navbar">
+                <button aria-expanded="false" aria-controls="menu-list">
+                    <span class ="open">Menu</span>
+                    <span class="close">X</span>
+                </button>
+            <ul class ="menu-list">
+                <li>Tacos</li>
+                <li>Beers</li>
+                <li>Wines</li>
+                <li>Desserts</li>
+                <li>Reservations</li>
+            </ul>
+            </nav>
         </header>
-        <main>
             <div class="top">
-                <div class="main-image">
+                <div class="hero">
                     <h1>Terry's Taco Joint</h1>
                     <p>Pretty Good Tacos!</p>
                 </div>
-                <div class ="remain">
-                    <div class="price-tacos">
+                    <div class="cta cta1">
                         <h2>$1.99</h2>
                         <h3>Tacos</h3>
                     </div>
-                    <div class="price-kombucha">
+                    <div class="cta cta2">
                         <h2>$3.99</h2>
                         <h3>Kombucha</h3>
                     </div>
-                </div>
-                
             </div>
+            
             <div class="more-options">
-                <div class="options1">Tacos</div>
-                <div class="options2">Beer</div>
-                <div class="options3">Wine</div>
-                <div class="options4">Music</div>
+                <div class="options">Tacos</div>
+                <div class="options">Beer</div>
+                <div class="options">Wine</div>
+                <div class="options">Music</div>
             </div>
-            <div class="highlights">
-                <span>Featured Taco</span>
-                <p class="details">
-                    Slim Profile, easy to hold and loaded with cheese.
-                    <br>
-                    This is the one you have been waiting for</p>
-                    <div class="button">Learn More</div>
-            </div>
+            
+                <div class="highlights">
+                    <section class ="features">
+                        <p>Featured Taco
+                            <br>
+                            Slim Profile, easy to hold and loaded with cheese.
+                            <br>
+                            This is the one you have been waiting for</p>
+                        </p>
+                        <div class="button">Learn More</div>
+                    </section>
+                </div>            
             <h2 class="instant">
                 Instant Grams
             </h2>
@@ -78,6 +86,15 @@
             <div class="more-image">
                 <img>
             </div>
-        </main>
+            <script>
+                const navButton = document.querySelector('button[aria-expanded]');
+            
+                function toggleNav({ target }) {
+                  const expanded = target.getAttribute('aria-expanded') === 'true' || false;
+                  navButton.setAttribute('aria-expanded', !expanded);
+                }
+            
+                navButton.addEventListener('click', toggleNav);
+              </script>
     </body>
 </html>

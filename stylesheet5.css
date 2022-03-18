@@ -1,23 +1,35 @@
 body {
     background-image: url(backgroundfree.jpg);
-    width: 100%;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    margin: 0;
+    margin: 50px;
     font-family: 'Orelega One', cursive;
-    
+    letter-spacing: -1;
 }
 
 header {
     margin-top: 60px;
     width: 100%;
 }
-.grid-header {
+.menu-list {
     display: grid;
-    grid-template-columns: auto auto auto auto auto;
-    gap: 10px;
-    margin-left: 50px;
-    margin-right: 50px;
+    grid-gap: 10px;
+    padding: 0;
+    list-style: none;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+}
+
+li {
+    display: list-item;
+    text-align: -webkit-match-parent;
+    background: #ffc600;
+    display: block;
+    text-decoration: none;
+    padding: 10px;
+    text-align: center;
+    color: var(--black);
+    text-transform: uppercase;
+    font-size: 20px;
     
 }
 .head-options {
@@ -33,25 +45,40 @@ header {
     text-shadow: 0.5px 0.5px black;
     font-size: 20px;
 }
-.main-image {
+.hero {
     background: url(tacos-main.jpg) no-repeat;
+    grid-area: hero;
+    min-height: 400px;
+    background-size: cover;
     background-position: top;
-    margin-left: 50px;
-    height: 400px;
     position: relative;
+    min-height: 400px;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
 }
 .top {
     display: grid;
-    grid-template-columns: 66% 33%;
-    margin-top: 40px;
-    grid-column-gap: 20px;
-    grid-row-gap: 20px;
+    /* grid-template-columns: 66% 33%; */
+    grid-gap: 20px;
+    grid-template-areas:
+        "hero hero cta1"
+        "hero hero cta2";
 }
-.remain {
-    
-    margin-right: 50px;
-    position: relative;
-    
+.cta {
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    align-content: center;
+    background: #ffc600;
+}
+.cta1 {
+    grid-area: cta1;
+}
+.cta2 {
+    grid-area: cta2;
 }
 .price-tacos {
     background-color: #ffc600;
@@ -64,7 +91,7 @@ header {
 }
 h2 {
     position: relative;
-    top: 30%;
+    /* top: 30%; */
     text-align: center;
     font-size: 48px;
     font-weight: none;
@@ -76,15 +103,14 @@ h1, .top p  {
     width: fit-content;
     position: relative;
     padding: 5px;
-    top: 40%;
-    margin-left: 50px;
+    
 }
 h3 {
     margin: 10px 10px 10px 10px;
     font-weight: 300;
     padding: 10px;
     position: relative;
-    top: 20%;
+    /* top: 20%; */
     text-align: center;
     text-shadow: 2px;
 }
@@ -95,39 +121,53 @@ h3 {
 }
 
 .more-options {
+    margin-top: 20px;
     display: grid;
-    grid-template-columns: 25% 25% 25% 25%;
-    margin: 50px;
-    grid-column-gap: 20px;
-    width: 1110px;
+    /* grid-template-columns: 25% 25% 25% 25%; */
+    grid-gap: 20px;
+    /* width: 1110px; */
+    
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 }
-.options1, .options2, .options3, .options4 {
+
+.options {
     background-color: aliceblue;
     text-align: center;
     height: 150px;
     padding-top: 40px;
     font-size: 20px;
 }
+.options:hover {
+    box-shadow: 0 1px 5px 1px #001F00;
+}
+.features {
+    padding: 50px;
+    display: grid;
+    grid-template-columns: 400px 1fr;
+    align-items: center;
+}
 .highlights {
-    width: 1170px;
+    /* width: 1170px; */
     background-color: aliceblue;
-    margin-left: 50px;
-    height: 400px;
+    min-height: 400px;
     background: url(tacos1.jpg) no-repeat;
     background-position: center;
     background-size: cover;
+    margin: 20px 0 20px 0;
 }
 span, .highlights p, .button {
-    top: 30%;
+    width:fit-content;
     position: relative;
-    margin-left: 30px;
     font-size: 20px;
     text-shadow: 0.5px 0.5px;
     line-height: 1.6;
 }
+button {
+    background-color: red;
+}
 .button {
     width:fit-content;
-    padding: 5px;
+    padding: 10px 20px;
     text-shadow: none;
     background-color: #ffc600;
 }
@@ -135,7 +175,6 @@ span, .highlights p, .button {
     display: grid;
     grid-gap: 20px;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    margin: 50px;
 }
 .line div {
     grid-column: 1 / -1;
@@ -150,6 +189,23 @@ span, .highlights p, .button {
 img {
     max-width: 100%;
 }
-.instant {
-    margin: 50px;
+
+
+@media screen and (max-width: 1000px) {
+    .nav-bar {
+        perspective: 800px;
+    }
+    [aria-controls="menu-list"] {
+        display: block;
+        margin-bottom: 10px;
+    }
+    [aria-expanded="true"] {
+        display: grid;
+        max-height: 500px;
+        transform: rotateX(0);
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    
 }
